@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+		<script>
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      var renderer = new THREE.WebGLRenderer({antialias: true});
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      renderer.setClearColor(0x000022);
+      document.body.appendChild(renderer.domElement);
+
+      var radius1 = 0.3;
+      var radius2 = 0.9;
+      var tableDimension = [6.7, 0.15, 1.8];
+      var wardrobeDimension = [2.7, 6, 4];
+
+      var dotGeometry = new THREE.Geometry();
+      var dotMaterial = new THREE.PointsMaterial( { size: 4, sizeAttenuation: false } );
+      var dot = new THREE.Points( dotGeometry, dotMaterial );
+      scene.add( dot );
+
+      var axes = new THREE.AxesHelper(8);
+      scene.add(axes);
+
+      dotGeometry.vertices.push(new THREE.Vector3(0, 0, 0));
+      dotGeometry.vertices.push(new THREE.Vector3(tableDimension[0], 0, 0));
+
+      for (let theta = 0 ; theta <= Math.PI/2 ; theta += Math.PI/18)
+        dotGeometry.vertices.push(new THREE.Vector3(tableDimension[0] - radius1 + radius1*Math.cos(theta), 0, tableDimension[2] + radius1*Math.sin(theta)));
+
+      for (let theta = 0 ; theta <= Math.PI/2 ; theta += Math.PI/18)
+        dotGeometry.vertices.push(new THREE.Vector3(wardrobeDimension[0] + radius2*(1-Math.sin(theta)), 0, tableDimension[2] + radius1 + radius2*(1-Math.cos(theta))));
+
+      dotGeometry.vertices.push(new THREE.Vector3(0, 0, tableDimension[2] + radius1 + radius2));
+
+      dotGeometry.vertices.push(new THREE.Vector3(0, tableDimension[1], 0));
+      dotGeometry.vertices.push(new THREE.Vector3(tableDimension[0], tableDimension[1], 0));
+
+      for (let theta = 0 ; theta <= Math.PI/2 ; theta += Math.PI/18)
+        dotGeometry.vertices.push(new THREE.Vector3(tableDimension[0] - radius1 + radius1*Math.cos(theta), tableDimension[1], tableDimension[2] + radius1*Math.sin(theta)));
+
+      for (let theta = 0 ; theta <= Math.PI/2 ; theta += Math.PI/18)
+        dotGeometry.vertices.push(new THREE.Vector3(wardrobeDimension[0] + radius2*(1-Math.sin(theta)), tableDimension[1], tableDimension[2] + radius1 + radius2*(1-Math.cos(theta))));
+
+      dotGeometry.vertices.push(new THREE.Vector3(0, tableDimension[1], tableDimension[2] + radius1 + radius2));
+
+      var light =  new THREE.PointLight(0xffffff, 1.0);
+      //light.position={ x: 2, y:1, z: 3};
+      light.position.set(4,4,2);
+
+      scene.add(light);
+      camera.position.x = 8;
+      camera.position.z = 8;
+      camera.position.y = 8;
+      camera.up = new THREE.Vector3(0, 0, 1);
+      camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+      var controls = new THREE.OrbitControls(camera);
+
+      console.log(dotGeometry.vertices[1].x);
+      console.log(dotGeometry.vertices[2].x);
+      console.log(dotGeometry.vertices[3].x);
+
+      var t = 0;
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        //camera.lookAt(new THREE.Vector3(0, 0, 0))
+        renderer.render(scene, camera);
+        t = t + 0.01;
+      }
+
+      // Changing points position
+      dot.rotation.x = Math.PI/2;
+      dot.rotation.y = Math.PI/2;
+
+      animate();
+    </script>
+	</body>
+</html>
