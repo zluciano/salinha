@@ -128,30 +128,6 @@
 		bedMattress.position.z = bedZDimension/2 + legZDimension/2;
 		bedGroup.add(bedMattress);
 
-		var bedMattressThicknessCloth = 5.5;
-		var bedMattressGeomCloth = new THREE.BoxGeometry(bedXDimension*1.1, bedMattressThickness*1.1, bedZDimension - legZDimension-10);
-		var bedMattressMatCloth = new THREE.MeshPhongMaterial({color:0xdd0000});
-		var bedMattressCloth = new THREE.Mesh(bedMattressGeomCloth, bedMattressMatCloth);
-		bedMattressCloth.receiveShadow = true;
-		bedMattressCloth.castShadow = true;
-
-		bedMattressCloth.position.x = size - bedXDimension/2;
-		bedMattressCloth.position.y = legYDimension + bedFrameThickness + bedMattressThickness/2;
-		bedMattressCloth.position.z = bedZDimension/2 + legZDimension/2 + 5.5;
-		bedGroup.add(bedMattressCloth);
-
-		var pillowThickness = 3;
-		var pillowGeom = new THREE.BoxGeometry(bedXDimension*0.6, bedMattressThickness*0.5, (bedZDimension - legZDimension-10)*0.2);
-		var pillowMat = new THREE.MeshPhongMaterial({color:0xdddddd});
-		var pillow = new THREE.Mesh(pillowGeom, pillowMat);
-		pillow.receiveShadow = true;
-		pillow.castShadow = true;
-
-		pillow.position.x = size - bedXDimension/2;
-		pillow.position.y = legYDimension + bedFrameThickness + 3*bedMattressThickness/2-1;
-		pillow.position.z = bedZDimension/2 + legZDimension/2 + 5.5 - bedZDimension/2;
-		bedGroup.add(pillow);
-
 		var bedBackFrameHeight = 13;
 		var bedBackFrameGeom = new THREE.BoxGeometry(bedXDimension, bedBackFrameHeight, legZDimension);
 		var bedBackFrameMat = new THREE.MeshPhongMaterial({color:0x669999});
@@ -661,17 +637,18 @@
 
 		var lightBulb = new THREE.PointLight(0x303030, 0.8);
 		lightBulb.castShadow = true;
-		lightBulb.shadow.camera.near = 10;
-		lightBulb.shadow.camera.far = 250;
+		lightBulb.shadow.camera.near = 0.1;
+		lightBulb.shadow.camera.far = 25;
 
 		lightBulb1 = lightBulb.clone();
-		lightBulb1.position.set(50, 80, 50);
+		lightBulb1.position.set(1.5, 5, 0.2);
 
 		lightBulb2 = lightBulb.clone();
-		lightBulb2.position.set(size*8.5, 50, 2);
+		lightBulb2.position.set(size*0.85, 5, 0.2);
 
 		scene.add(ambientLight);
 		scene.add(lightBulb1);
+		scene.add(lightBulb2);
 
 		var open = 1;
 		var inc = 1;
