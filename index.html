@@ -366,7 +366,7 @@
 		geoSidesTopo = new THREE.Geometry();
 		geoSidesBottom = new THREE.Geometry();
 
-		size = 50;
+		size = 20;
 		thick = size/25;
 
 		for (i=0; i<size; i++)
@@ -603,6 +603,9 @@
 		)
 		mesh.rotation.x = Math.PI / 2;
 		mesh.rotation.y = Math.PI;
+		mesh.position.x += 60;
+		mesh.position.y += 27;
+		mesh.position.z += 8;
 		scene.add(mesh)
 
 		var mesh = new THREE.Mesh( geoBottom, 
@@ -615,6 +618,9 @@
 		)
 		mesh.rotation.x = Math.PI / 2;
 		mesh.rotation.y = Math.PI;
+		mesh.position.x += 60;
+		mesh.position.y += 27;
+		mesh.position.z += 8;
 		scene.add(mesh)
 
 		var mesh = new THREE.Mesh( geoBottom2, 
@@ -626,6 +632,9 @@
 		)
 		mesh.rotation.x = Math.PI / 2;
 		mesh.rotation.y = Math.PI;
+		mesh.position.x += 60;
+		mesh.position.y += 27;
+		mesh.position.z += 8;
 		scene.add(mesh)
 
 		var mesh = new THREE.Mesh( geoSidesTopo, 
@@ -637,6 +646,9 @@
 		)
 		mesh.rotation.x = Math.PI / 2;
 		mesh.rotation.y = Math.PI;
+		mesh.position.x += 60;
+		mesh.position.y += 27;
+		mesh.position.z += 8;
 		scene.add(mesh)
 
 		var mesh = new THREE.Mesh( geoSidesBottom, 
@@ -648,6 +660,9 @@
 		)
 		mesh.rotation.x = Math.PI / 2;
 		mesh.rotation.y = Math.PI;
+		mesh.position.x += 60;
+		mesh.position.y += 27;
+		mesh.position.z += 8;
 		scene.add(mesh)
 
 		var axesHelper = new THREE.AxesHelper( 5 );
