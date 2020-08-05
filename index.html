@@ -580,6 +580,8 @@
 			map: textureforster1,
 			}) 
 		)
+		meshc1.rotation.x = Math.PI / 2;
+		meshc1.rotation.y = Math.PI;
 		scene.add(meshc1)
 
 		var meshc2 = new THREE.Mesh( geoTopo, 
@@ -599,6 +601,8 @@
 			map: texturebanana,
 			}) 
 		)
+		mesh.rotation.x = Math.PI / 2;
+		mesh.rotation.y = Math.PI;
 		scene.add(mesh)
 
 		var mesh = new THREE.Mesh( geoBottom, 
@@ -609,7 +613,9 @@
 			map: texturekey,
 			}) 
 		)
-		//scene.add(mesh)
+		mesh.rotation.x = Math.PI / 2;
+		mesh.rotation.y = Math.PI;
+		scene.add(mesh)
 
 		var mesh = new THREE.Mesh( geoBottom2, 
 			new THREE.MeshPhongMaterial({
@@ -618,6 +624,8 @@
 			side: THREE.DoubleSide,
 			}) 
 		)
+		mesh.rotation.x = Math.PI / 2;
+		mesh.rotation.y = Math.PI;
 		scene.add(mesh)
 
 		var mesh = new THREE.Mesh( geoSidesTopo, 
@@ -627,6 +635,8 @@
 			side: THREE.DoubleSide,
 			}) 
 		)
+		mesh.rotation.x = Math.PI / 2;
+		mesh.rotation.y = Math.PI;
 		scene.add(mesh)
 
 		var mesh = new THREE.Mesh( geoSidesBottom, 
@@ -636,6 +646,8 @@
 			side: THREE.DoubleSide,
 			}) 
 		)
+		mesh.rotation.x = Math.PI / 2;
+		mesh.rotation.y = Math.PI;
 		scene.add(mesh)
 
 		var axesHelper = new THREE.AxesHelper( 5 );
