@@ -46,9 +46,9 @@
 			map: loader.load("floor.jpg")
 		});
 		var walls = [
-			new THREE.Mesh(planeGeom, floorMat),
 			new THREE.Mesh(planeGeom, wallMats[0]),
 			new THREE.Mesh(planeGeom, wallMats[1]),
+			new THREE.Mesh(planeGeom, floorMat),
 			new THREE.Mesh(planeGeom, floorMat)
 		];
 		walls[0].castShadow = true;
