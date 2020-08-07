@@ -168,7 +168,11 @@
 
 		var loader = new THREE.TextureLoader();
 
-		var textureBox = loader.load("banana.png");
+		var textureBox = loader.load([
+			"banana.png", "screen21.png",
+			"banana.png", "screen21.png",
+			"banana.png", "screen21.png"
+			]);
 
 		// Wardrobe
 		var wardrobeDim = [27, 60, 40];
