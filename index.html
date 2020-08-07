@@ -167,18 +167,22 @@
 		scene.add(bedGroup);
 
 		var loader = new THREE.CubeTextureLoader();
+		var textureBox = loader.load("banana.png");
 
-		var textureBox = loader.load( [
-			'banana.png', 'banana.png',
-			'banana.png', 'banana.png',
-			'banana.png', 'banana.png'
-		] );
+		var materialsk = [
+			new THREE.MeshBasicMaterial({map: textureBox}),
+			new THREE.MeshBasicMaterial({map: textureBox}),
+			new THREE.MeshBasicMaterial({map: textureBox}),
+			new THREE.MeshBasicMaterial({map: textureBox}),
+			new THREE.MeshBasicMaterial({map: textureBox}),
+			new THREE.MeshBasicMaterial({map: textureBox})
+		];
 
 		// Wardrobe
 		var wardrobeDim = [27, 60, 40];
 		var wardrobeGeom = new THREE.BoxGeometry(wardrobeDim[0], wardrobeDim[1], wardrobeDim[2]);
-		var wardrobeMat = new THREE.MeshBasicMaterial({color: 0xdddddd, envMap: textureBox});
-		var wardrobe = new THREE.Mesh(wardrobeGeom, wardrobeMat);
+		//var wardrobeMat = new THREE.MeshBasicMaterial({color: 0xdddddd, envMap: textureBox});
+		var wardrobe = new THREE.Mesh(wardrobeGeom, materialsk);
 
 		wardrobe.position.x = wardrobeDim[0]/2;
 		wardrobe.position.y = wardrobeDim[1]/2;
