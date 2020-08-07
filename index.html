@@ -221,6 +221,16 @@
 		wardrobe.castShadow = true;
 		scene.add(wardrobe);
 
+		var materialsk = [
+		new THREE.MeshPhongMaterial({map: loader.load("insidefriendsdoor.jpg")}),
+		new THREE.MeshPhongMaterial({map: loader.load("outsidefriendsdoor.jpg")}),
+		new THREE.MeshPhongMaterial({map: loader.load("thing.png")}),
+		new THREE.MeshPhongMaterial({map: loader.load("thing.png")}),
+		new THREE.MeshPhongMaterial({map: loader.load("thing.png")}),
+		new THREE.MeshPhongMaterial({map: loader.load("thing.png")}),
+		new THREE.MeshPhongMaterial({map: loader.load("thing.png")})
+		];
+
 		// Door
 		var doorDimension = [1, 45, 20];
 		var offset = [doorDimension[0]/2, doorDimension[1]/2, -doorDimension[2]/2];
