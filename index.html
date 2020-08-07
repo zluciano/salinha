@@ -177,7 +177,7 @@
 		// Wardrobe
 		var wardrobeDim = [27, 60, 40];
 		var wardrobeGeom = new THREE.BoxGeometry(wardrobeDim[0], wardrobeDim[1], wardrobeDim[2]);
-		var wardrobeMat = new THREE.MeshPhongMaterial({color: 0xdddddd, map: textureBox});
+		var wardrobeMat = new THREE.MeshPhongMaterial({color: 0xdddddd, envMap: textureBox});
 		var wardrobe = new THREE.Mesh(wardrobeGeom, wardrobeMat);
 
 		wardrobe.position.x = wardrobeDim[0]/2;
