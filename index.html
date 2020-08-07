@@ -30,19 +30,35 @@
 		var loader = new THREE.TextureLoader();
 		// Floor and walls
 		var planeGeom = new THREE.PlaneBufferGeometry(size, size);
-		var wallMat = new THREE.MeshStandardMaterial({
-			emissive: 0x708090,
-			emissiveIntensity: 0.3,
-			map: loader.load("wall.jpg")
-		});
+		var wallMats = [
+				new THREE.MeshStandardMaterial({
+					emissive: 0x708090,
+					emissiveIntensity: 0.3,
+					map: loader.load("wall1.jpg")}),
+				new THREE.MeshStandardMaterial({
+					emissive: 0x708090,
+					emissiveIntensity: 0.3,
+					map: loader.load("wall2.jpg"),})
+		];
 		var floorMat = new THREE.MeshPhongMaterial({
 			emissive: 0x708090,
 			emissiveIntensity: 0.3,
 			map: loader.load("floor.jpg")
 		});
-		var wall = new THREE.Mesh(planeGeom, wallMat);
-		wall.castShadow = true;
-		wall.receiveShadow = true;
+		var walls = [
+			new THREE.Mesh(planeGeom, wallMats[0]),
+			new THREE.Mesh(planeGeom, wallMats[1]),
+			new THREE.Mesh(planeGeom, floorMat),
+			new THREE.Mesh(planeGeom, floorMat)
+		];
+		walls[0].castShadow = true;
+		walls[0].receiveShadow = true;
+		walls[1].castShadow = true;
+		walls[1].receiveShadow = true;
+		walls[2].castShadow = true;
+		walls[2].receiveShadow = true;
+		walls[3].castShadow = true;
+		walls[3].receiveShadow = true;
 		var floor = new THREE.Mesh(planeGeom, floorMat);
 		floor.castShadow = true;
 		floor.receiveShadow = true;
@@ -56,7 +72,7 @@
 				if (i == 0) {
 					m = floor.clone();
 				} else {
-					m = wall.clone();
+					m = walls[i].clone();
 				}
 				m.rotation.x = rotations[i][0];
 				m.rotation.y = rotations[i][1];
