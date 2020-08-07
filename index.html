@@ -167,10 +167,11 @@
 		scene.add(bedGroup);
 
 		var loader = new THREE.TextureLoader();
-		var textureBox = loader.load("wardrobe.png");
+		var textureBoxF = loader.load("wardrobe.png");
+		var textureBox = loader.load("wardrobes.png");
 
 		var materialsk = [
-			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBox}),
+			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBoxF}),
 			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBox}),
 			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBox}),
 			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBox}),
