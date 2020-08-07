@@ -48,8 +48,8 @@
 		var walls = [
 			new THREE.Mesh(planeGeom, wallMats[0]),
 			new THREE.Mesh(planeGeom, wallMats[1]),
-			new THREE.Mesh(planeGeom, floorMat),
-			new THREE.Mesh(planeGeom, floorMat)
+			new THREE.Mesh(planeGeom, wallMats[0]),
+			new THREE.Mesh(planeGeom, wallMats[1])
 		];
 		walls[0].castShadow = true;
 		walls[0].receiveShadow = true;
@@ -236,8 +236,8 @@
 		var offset = [doorDimension[0]/2, doorDimension[1]/2, -doorDimension[2]/2];
 		var doorGeom = new THREE.BoxGeometry(doorDimension[0], doorDimension[1], -doorDimension[2]);
 		doorGeom.translate(offset[0], offset[1], offset[2]);
-		var doorMat = new THREE.MeshPhongMaterial({map: loader.load("friendsdoor.jpg")});
-		var door = new THREE.Mesh(doorGeom, doorMat);
+		//var doorMat = new THREE.MeshPhongMaterial({map: loader.load("friendsdoor.jpg")});
+		var door = new THREE.Mesh(doorGeom, materialsk);
 
 		door.position.x = size - doorDimension[0]/2;
 		door.position.y = 0;
