@@ -210,7 +210,7 @@
 		var offset = [doorDimension[0]/2, doorDimension[1]/2, -doorDimension[2]/2];
 		var doorGeom = new THREE.BoxGeometry(doorDimension[0], doorDimension[1], -doorDimension[2]);
 		doorGeom.translate(offset[0], offset[1], offset[2]);
-		var doorMat = new THREE.MeshPhongMaterial({color: 0xdddddd});
+		var doorMat = new THREE.MeshPhongMaterial({map: loader.load("thing.png")});
 		var door = new THREE.Mesh(doorGeom, doorMat);
 
 		door.position.x = size - doorDimension[0]/2;
