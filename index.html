@@ -128,10 +128,21 @@
 		bedMattress.position.z = bedZDimension/2 + legZDimension/2;
 		bedGroup.add(bedMattress);
 
+		var loader = new THREE.TextureLoader();
+		var textureBox = loader.load("noisfaria.jpg");
+        var materialsk = [
+			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBox}),
+			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBox}),
+			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBox}),
+			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBox}),
+			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBox}),
+			new THREE.MeshBasicMaterial({color: 0xdddddd, map: textureBox})
+		];
+
 		var bedMattressThicknessCloth = 5.5;
 		var bedMattressGeomCloth = new THREE.BoxGeometry(bedXDimension*1.1, bedMattressThickness*1.1, bedZDimension - legZDimension-10);
-		var bedMattressMatCloth = new THREE.MeshPhongMaterial({color:0xdd0000});
-		var bedMattressCloth = new THREE.Mesh(bedMattressGeomCloth, bedMattressMatCloth);
+		//var bedMattressMatCloth = new THREE.MeshPhongMaterial({color:0xdd0000});
+		var bedMattressCloth = new THREE.Mesh(bedMattressGeomCloth, materialsk);
 		bedMattressCloth.receiveShadow = true;
 		bedMattressCloth.castShadow = true;
 
