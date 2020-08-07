@@ -34,11 +34,11 @@
 				new THREE.MeshStandardMaterial({
 					emissive: 0x708090,
 					emissiveIntensity: 0.3,
-					map: loader.load("wall2.jpg")}),
+					map: loader.load("wall1.jpg")}),
 				new THREE.MeshStandardMaterial({
 					emissive: 0x708090,
 					emissiveIntensity: 0.3,
-					map: loader.load("wall1.jpg"),})
+					map: loader.load("wall2.jpg"),})
 		];
 		var floorMat = new THREE.MeshPhongMaterial({
 			emissive: 0x708090,
@@ -46,10 +46,10 @@
 			map: loader.load("floor.jpg")
 		});
 		var walls = [
+			new THREE.Mesh(planeGeom, floorMat),
 			new THREE.Mesh(planeGeom, wallMats[0]),
-			new THREE.Mesh(planeGeom, floorMat),
-			new THREE.Mesh(planeGeom, floorMat),
-			new THREE.Mesh(planeGeom, wallMats[1])
+			new THREE.Mesh(planeGeom, wallMats[1]),
+			new THREE.Mesh(planeGeom, floorMat)
 		];
 		walls[0].castShadow = true;
 		walls[0].receiveShadow = true;
