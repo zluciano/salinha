@@ -112,6 +112,25 @@
 		walls = makeWalls();
 		scene.add(walls);
 
+		// Quadros
+		var picG = new THREE.BoxGeometry(1, 20, 15);
+		var picM = [
+			new THREE.MeshPhongMaterial({map: "quadro1.jpg"}),
+			new THREE.MeshPhongMaterial({map: "quadro2.jpg"}),
+			new THREE.MeshPhongMaterial({map: "quadro3.jpg"}),
+			new THREE.MeshPhongMaterial({map: "quadro4.jpg"}),
+			new THREE.MeshPhongMaterial({map: "quadro5.jpg"}),
+			new THREE.MeshPhongMaterial({map: "quadro6.jpg"})
+		];
+		var q1 = new THREE.Mesh(picG, picM[0]);
+		q1.position.x = 0.6*size;
+		q1.position.y = 0.7*size;
+		q1.position.z = 0;
+		q1.rotation.y = -Math.PI/2;
+		q1.receiveShadow = true;
+		q1.castShadow = true;
+		scene.add(q1);
+
 		// Bed
 		bedXDimension = 27;
 		bedZDimension = 50;
