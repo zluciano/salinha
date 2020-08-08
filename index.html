@@ -115,12 +115,12 @@
 		// Quadros
 		var picG = new THREE.BoxGeometry(1, 20, 15);
 		var picM = [
-			new THREE.MeshPhongMaterial({map: "quadro1.jpg"}),
-			new THREE.MeshPhongMaterial({map: "quadro2.jpg"}),
-			new THREE.MeshPhongMaterial({map: "quadro3.jpg"}),
-			new THREE.MeshPhongMaterial({map: "quadro4.jpg"}),
-			new THREE.MeshPhongMaterial({map: "quadro5.jpg"}),
-			new THREE.MeshPhongMaterial({map: "quadro6.jpg"})
+			new THREE.MeshPhongMaterial({map: loader.load("quadro1.jpg")}),
+			new THREE.MeshPhongMaterial({map: loader.load("quadro2.jpg")}),
+			new THREE.MeshPhongMaterial({map: loader.load("quadro3.jpg")}),
+			new THREE.MeshPhongMaterial({map: loader.load("quadro4.jpg")}),
+			new THREE.MeshPhongMaterial({map: loader.load("quadro5.jpg")}),
+			new THREE.MeshPhongMaterial({map: loader.load("quadro6.jpg")})
 		];
 		var q1 = new THREE.Mesh(picG, picM[0]);
 		q1.position.x = 0.6*size;
