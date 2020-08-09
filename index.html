@@ -728,15 +728,21 @@
 		geoTopo.colorsNeedUpdate=true;
 		geoTopo.verticesNeedUpdate=true;
 		geoTopo.dynamic=true;
+		geoTopo.scale(1, 9/16, 1);
 		geoTopo2.colorsNeedUpdate=true;
 		geoTopo2.verticesNeedUpdate=true;
 		geoTopo2.dynamic=true;
+		geoTopo2.scale(9/16, 1, 1);
 		geoSidesTopo.colorsNeedUpdate=true;
 		geoSidesTopo.verticesNeedUpdate=true;
 		geoSidesTopo.dynamic=true;
+		geoSidesTopo.scale(9/16, 1, 1);
+		geoSidesBottom.scale(9/16, 1, 1);
 		geoBottom.colorsNeedUpdate=true;
 		geoBottom.verticesNeedUpdate=true;
 		geoBottom.dynamic=true;
+		geoBottom.scale(9/16, 1, 1);
+		geoBottom2.scale(9/16, 1, 1);
 
 		var textureLoaderkey = new THREE.TextureLoader();
 		var texturekey = textureLoaderkey.load( "keyboard.png" );
