@@ -512,6 +512,23 @@
 
 		scene.add(studyChair);
 
+		// video
+
+		video = document.createElement( 'video' );
+		video.src = "sample.mp4";
+		video.load(); // must call after setting/changing source
+		video.play();
+		videoImage = document.createElement( 'canvas' );
+		videoImage.width = 480;
+		videoImage.height = 204;
+		videoImageContext = videoImage.getContext( '2d' );
+		videoImageContext.fillStyle = '#000000';
+		videoImageContext.fillRect( 0, 0, videoImage.width, videoImage.height );
+		videoTexture = new THREE.Texture( videoImage );
+		videoTexture.minFilter = THREE.LinearFilter;
+		videoTexture.magFilter = THREE.LinearFilter;
+
+
 		// Notebook
 
 		geoTopo = new THREE.Geometry();
@@ -728,11 +745,11 @@
 		var texturebanana = textureLoaderbanana.load( "banana.png" );
 
 		var meshc1 = new THREE.Mesh( geoTopo, 
-			new THREE.MeshPhongMaterial({
-			vertexColors: THREE.VertexColors,
+			new THREE.MeshBasicMaterial({
 			//flatShading: true,
 			side: THREE.DoubleSide,
-			map: textureforster1,
+			map: videoTexture,
+			overdraw: true,
 			}) 
 		)
 		meshc1.rotation.x = Math.PI / 2;
@@ -922,21 +939,6 @@
 				open2 = true;
 				time = 0;
 			}
-
-				if(s>5 && estado==2)
-				{ 
-				scene.remove(meshc2)
-				scene.add(meshc1)
-				estado=1;
-				s=0;
-				}
-				else if(s>5 && estado==1)
-				{
-				scene.remove(meshc1)
-				scene.add(meshc2)
-				estado=2;
-				s=0;
-				}
 
 				geoTopo.dynamic=true
 				geoTopo.verticesNeedUpdate=true
