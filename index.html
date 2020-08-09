@@ -128,14 +128,25 @@
 			);
 		}
 		var q1 = new THREE.Mesh(picG, picM[0]);
-		q1.position.x = 0.6*size;
-		q1.position.y = 0.7*size;
+		q1.position.x = 0.65*size;
+		q1.position.y = 0.65*size;
 		q1.position.z = 0;
 		q1.rotation.y = -Math.PI/2;
 		q1.rotation.z = Math.PI;
 		q1.receiveShadow = true;
 		q1.castShadow = true;
 		scene.add(q1);
+
+		
+		var q2 = new THREE.Mesh(picG, picM[1]);
+		q2.position.x = 0.35*size;
+		q2.position.y = 0.65*size;
+		q2.position.z = 0;
+		q2.rotation.y = -Math.PI/2;
+		q2.rotation.z = Math.PI;
+		q2.receiveShadow = true;
+		q2.castShadow = true;
+		scene.add(q2);
 
 		// Bed
 		bedXDimension = 27;
