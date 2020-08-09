@@ -16,7 +16,7 @@
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
 		camera.position.x = 105;
-		camera.position.y = 30;
+		camera.position.y = 25;
 		camera.position.z = 80;
 		camera.target = new THREE.Vector3(0, 30, 80);
 		var controls = new THREE.OrbitControls(camera);
@@ -927,7 +927,7 @@
 			}
 			camera.lookAt(camera.target);
 			if (pat==0 && step<1 && open) {
-				camera.position.set((105-step*35), 30, 80);
+				camera.position.set((105-step*35), 25 + 5*step, 80);
 				step+=0.004;
 			} else if (pat==0 && open) {
 				step = 0;
