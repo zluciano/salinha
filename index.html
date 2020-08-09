@@ -10,7 +10,8 @@
 	</head>
 	<body>
 		<script src="js/three.min.js"></script>
-    <script src="js/OrbitControls.js"></script>
+		<script src="js/OrbitControls.js"></script>
+		<script src="js/KeyboardState.js"></script>
 		<script>
 		var scene = new THREE.Scene();
 		var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -25,6 +26,7 @@
 		renderer.shadowMap.enabled = true;
 		renderer.shadowMap.type = THREE.BasicShadowMap;
 		document.body.appendChild(renderer.domElement);
+		var keyboard = new KeyboardState();
 
 		var size = 100;
 
@@ -889,6 +891,8 @@
 		var open2 = true;
 		var step=0;
 		pat=0;
+		var cli = false;
+		document.addEventListener("mousedown", ()=>{cli=true;});
 		// Rendering
 		var animate = function () {
 			requestAnimationFrame(animate);
@@ -904,15 +908,14 @@
 			// Rotation
 			if (door.rotation.y >= Math.PI/2) {
 				open = 1;
-			} else if (!open) {
+			} else if (!open && cli) {
 				door.rotation.y += 0.01;
 			}
 
 			// Chair Moving
 			if (studyChair.position.z >= 90) {
 				inc = 0;
-				studyChair.position.z -= 0.5;
-			} else if (inc) {
+			} else if (inc && cli) {
 				studyChair.position.z += 0.5;
 			}
 
@@ -923,10 +926,10 @@
 					videoTexture.needsUpdate = true;
 			}
 			camera.lookAt(camera.target);
-			if (pat==0 && step<1) {
+			if (pat==0 && step<1 && cli) {
 				camera.position.set((130-step*60), 30, 80);
 				step+=0.004;
-			} else if (pat==0) {
+			} else if (pat==0 && cli) {
 				step = 0;
 				pat = 1;
 			}
