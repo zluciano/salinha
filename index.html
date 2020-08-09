@@ -974,7 +974,15 @@
 				studyChair.position.z -= 0.5;
 			}
 
-			video.play();
+			if ( video.readyState === video.HAVE_ENOUGH_DATA ) 
+			{
+				videoImageContext.drawImage( video, 0, 0 );
+				if ( videoTexture ) 
+					videoTexture.needsUpdate = true;
+			}
+
+			if ( keyboard.pressed("p") )
+				video.play();
 
 			renderer.render(scene, camera);
 		};
