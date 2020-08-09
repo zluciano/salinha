@@ -127,9 +127,9 @@
 				[
 					new THREE.MeshPhongMaterial({color: 0xdddd00}),
 					new THREE.MeshPhongMaterial({color: 0xdddd00}),
+					new THREE.MeshPhongMaterial({color: 0xdddd00}),
+					new THREE.MeshPhongMaterial({color: 0xdddd00}),
 					new THREE.MeshPhongMaterial({map: loader.load("quadro"+i.toString()+".jpg")}),
-					new THREE.MeshPhongMaterial({color: 0xdddd00}),
-					new THREE.MeshPhongMaterial({color: 0xdddd00}),
 					new THREE.MeshPhongMaterial({color: 0xdddd00})
 				]
 			);
@@ -139,6 +139,7 @@
 		q1.position.y = 0.7*size;
 		q1.position.z = 0;
 		q1.rotation.y = -Math.PI/2;
+		q1.rotation.z = Math.PI;
 		q1.receiveShadow = true;
 		q1.castShadow = true;
 		scene.add(q1);
