@@ -89,7 +89,7 @@
 
 		function makeWalls(){
 			var wallGroup = new THREE.Group();
-			rotations = [ [-Math.PI/2.0, 0, 0], [0, Math.PI/2.0, 0], [0, 0, 0], [0, -Math.PI/2.0, Math.PI], [0, -Math.PI, 0] ];
+			rotations = [ [-Math.PI/2.0, 0, 0], [0, Math.PI/2.0, 0], [0, 0, -Math.PI/2.0], [0, -Math.PI/2.0, Math.PI], [0, -Math.PI, Math.PI/2.0] ];
 			positions = [ [size/2, 0, size/2], [0, size/2, size/2], [size/2, size/2, 0], [size, size/2, size/2], [size/2, size/2, size] ];
 
 			for (let i = 0; i < rotations.length; i++) {
