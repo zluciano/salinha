@@ -89,7 +89,7 @@
 
 		function makeWalls(){
 			var wallGroup = new THREE.Group();
-			rotations = [ [-Math.PI/2.0, 0, 0], [0, Math.PI/2.0, 0], [0, 0, -Math.PI/2.0], [0, -Math.PI/2.0, Math.PI], [0, -Math.PI, Math.PI/2.0] ];
+			rotations = [ [-Math.PI/2.0, 0, 0], [0, Math.PI/2.0, 0], [0, 0, -Math.PI/2.0], [0, -Math.PI/2.0, Math.PI], [0, -Math.PI, -Math.PI/2.0] ];
 			positions = [ [size/2, 0, size/2], [0, size/2, size/2], [size/2, size/2, 0], [size, size/2, size/2], [size/2, size/2, size] ];
 
 			for (let i = 0; i < rotations.length; i++) {
@@ -160,7 +160,7 @@
 		var q3 = new THREE.Mesh(picG[2], picM[2]);
 		q3.position.x = size;
 		q3.position.y = 0.65*size;
-		q3.position.z = 0.35*size;
+		q3.position.z = 0.30*size;
 		q3.rotation.y = -Math.PI;
 		q3.rotation.z = Math.PI;
 		q3.receiveShadow = true;
@@ -170,7 +170,7 @@
 		var q4 = new THREE.Mesh(picG[3], picM[3]);
 		q4.position.x = size;
 		q4.position.y = 0.65*size;
-		q4.position.z = 0.65*size;
+		q4.position.z = 0.70*size;
 		q4.rotation.y = -Math.PI;
 		q4.rotation.z = Math.PI;
 		q4.receiveShadow = true;
@@ -967,6 +967,25 @@
 				step = 0;
 				pat = 3;
 				video.play();
+			}
+			if (pat==3 && step<1) {
+				step+=0.002;
+			} else if (pat==3) {
+				pat = 4;
+				step = 0;
+			}
+			if (pat==4 && step<1) {
+				camera.position.set(50, 32+step*38, 30+step*20);
+				step += 0.005;
+			} else if (pat==4) {
+				step=0;
+				pat = 5;
+			}
+			if (pat==5 && step<10) {
+				camera.target.x = 50 + 50*Math.cos(Math.PI/2-step*Math.PI);
+				camera.target.z = 50 - 50*Math.sin(Math.PI/2+step*Math.PI);
+				camera.lookAt(camera.target);
+				step+=0.001
 			}
 
 			renderer.render(scene, camera);
