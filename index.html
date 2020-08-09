@@ -137,7 +137,6 @@
 		q1.castShadow = true;
 		scene.add(q1);
 
-		
 		var q2 = new THREE.Mesh(picG, picM[1]);
 		q2.position.x = 0.35*size;
 		q2.position.y = 0.65*size;
@@ -147,6 +146,46 @@
 		q2.receiveShadow = true;
 		q2.castShadow = true;
 		scene.add(q2);
+
+		var q3 = new THREE.Mesh(picG, picM[2]);
+		q3.position.x = size;
+		q3.position.y = 0.65*size;
+		q3.position.z = 0.35*size;
+		q3.rotation.y = -Math.PI;
+		q3.rotation.z = Math.PI;
+		q3.receiveShadow = true;
+		q3.castShadow = true;
+		scene.add(q3);
+		
+		var q4 = new THREE.Mesh(picG, picM[3]);
+		q4.position.x = size;
+		q4.position.y = 0.65*size;
+		q4.position.z = 0.65*size;
+		q4.rotation.y = -Math.PI;
+		q4.rotation.z = Math.PI;
+		q4.receiveShadow = true;
+		q4.castShadow = true;
+		scene.add(q4);
+		
+		var q5 = new THREE.Mesh(picG, picM[4]);
+		q5.position.x = 0.35*size;
+		q5.position.y = 0.65*size;
+		q5.position.z = size;
+		q5.rotation.y = Math.PI/2;
+		q5.rotation.z = Math.PI;
+		q5.receiveShadow = true;
+		q5.castShadow = true;
+		scene.add(q5);
+		
+		var q6 = new THREE.Mesh(picG, picM[5]);
+		q6.position.x = 0.65*size;
+		q6.position.y = 0.65*size;
+		q6.position.z = size;
+		q6.rotation.y = Math.PI/2;
+		q6.rotation.z = Math.PI;
+		q6.receiveShadow = true;
+		q6.castShadow = true;
+		scene.add(q6);
 
 		// Bed
 		bedXDimension = 27;
