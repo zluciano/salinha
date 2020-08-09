@@ -114,22 +114,15 @@
 
 		// Quadros
 		var picG = new THREE.BoxGeometry(1, 20, 15);
-		var picM = [
-			new THREE.MeshPhongMaterial({map: loader.load("quadro1.jpg")}),
-			new THREE.MeshPhongMaterial({map: loader.load("quadro2.jpg")}),
-			new THREE.MeshPhongMaterial({map: loader.load("quadro3.jpg")}),
-			new THREE.MeshPhongMaterial({map: loader.load("quadro4.jpg")}),
-			new THREE.MeshPhongMaterial({map: loader.load("quadro5.jpg")}),
-			new THREE.MeshPhongMaterial({map: loader.load("quadro6.jpg")})
-		];
+		var picM = [];
 		for(let i=1; i<7; i++){
 			picM.push(
 				[
 					new THREE.MeshPhongMaterial({color: 0xdddd00}),
-					new THREE.MeshPhongMaterial({color: 0xdddd00}),
-					new THREE.MeshPhongMaterial({color: 0xdddd00}),
-					new THREE.MeshPhongMaterial({color: 0xdddd00}),
 					new THREE.MeshPhongMaterial({map: loader.load("quadro"+i.toString()+".jpg")}),
+					new THREE.MeshPhongMaterial({color: 0xdddd00}),
+					new THREE.MeshPhongMaterial({color: 0xdddd00}),
+					new THREE.MeshPhongMaterial({color: 0xdddd00}),
 					new THREE.MeshPhongMaterial({color: 0xdddd00})
 				]
 			);
